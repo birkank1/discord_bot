@@ -26,7 +26,16 @@ async def repeat(ctx, times: int, content='repeating...'):
 @bot.command()
 async def joined(ctx, member: discord.Member):
     """Says when a member joined."""
-    await ctx.send(f'{member.name} joined {discord.utils.format_dt(member.joined_at
+    await ctx.send(f'{member.name} joined {discord.utils.format_dt(member.joined_at)}')
+#komutla resim gönderme#
+@bot.command()
+async def guldur(ctx):
+    file_path = 'D:\\python pro derslerim\\discord_bot\\guldur.jpeg'
+    file = discord.File(file_path, filename='guldur.jpeg')
+    embed = discord.Embed(title="Gülme Zamanı!")
+    embed.set_image(url='attachment://guldur.jpeg')
+    await ctx.send(file=file, embed=embed)
+    
 
 
 bot.run('TOKEN GİRİLMELİ')
