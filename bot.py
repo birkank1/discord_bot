@@ -47,13 +47,14 @@ async def joined(ctx, member: discord.Member):
     
 #SHOWING IMAGE ON COMMAND#
 @bot.command()
-async def smile (ctx):
+async def #something# (ctx):
     file_path = 'D:\'
-    file = discord.File(file_path, filename='')
-    embed = discord.Embed(title="Its time to smile, show your teeth")
-    embed.set_image(url='attachment://')
+    file = discord.File(file_path, filename=???.jpeg'')
+    embed = discord.Embed(title="")
+    embed.set_image(url='attachment://???.jpeg')
     await ctx.send(file=file, embed=embed)
-    
+
+#---------ADMIN COMMANDS-------------#    
 #DELATING CERTAIN AMOUNT OF MESSAGES FROM A CHANNEL#
 @bot.command(aliases=['clean'])
 @commands.has_permissions(manage_messages = True)
@@ -90,6 +91,7 @@ async def ban(ctx, member: discord.Member, *, reason=None):
 @commands.has_permissions(ban_members=True)
 async def unban(ctx, *, member_name):
     if not any(role.name in ["Admin", "Ban Hammer"] for role in ctx.author.roles):
+#If you want to choose only one role:  if "any role you want" not in [role.name for role in ctx.author.roles]:#
         await ctx.send("You should have  Admin or Ban Hammer role to use this command.")
         return
     async for ban_entry in ctx.guild.bans():
@@ -105,6 +107,7 @@ async def unban(ctx, *, member_name):
 @commands.has_permissions(kick_members=True)
 async def kick(ctx, member: discord.Member, *, reason=None):
     if not any(role.name in ["Admin", "Ban Hammer"] for role in ctx.author.roles):
+#If you want to choose only one role:  if "any role you want" not in [role.name for role in ctx.author.roles]:#
         await ctx.send("You should have  Admin or Ban Hammer role to use this command.")
         return
     await member.kick(reason=reason)
