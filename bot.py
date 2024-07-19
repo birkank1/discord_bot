@@ -53,6 +53,14 @@ async def #something# (ctx):
     embed = discord.Embed(title="")
     embed.set_image(url='attachment://???.jpeg')
     await ctx.send(file=file, embed=embed)
+#SENDING RANDOM MEMES FROM A FOLDER#
+@bot.command()
+async def kedy(ctx):
+    random_file = random.choice(os.listdir('discord_bot\kedy'))
+    file_path = os.path.join('discord_bot\kedy' , random_file)
+    with open(file_path, 'rb') as f:
+        picture = discord.File(f)
+        await ctx.send(file=picture)
 
 #---------ADMIN COMMANDS-------------#    
 #DELATING CERTAIN AMOUNT OF MESSAGES FROM A CHANNEL#
